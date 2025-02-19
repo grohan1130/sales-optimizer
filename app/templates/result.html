@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Analysis Result</title>
+</head>
+<body>
+    <h1>Analysis Results</h1>
+    
+    <h2>Input Parameters</h2>
+    <p>Cost of Production: ${{ cost }}</p>
+    <p>Best-guess Price: ${{ best_guess_price }}</p>
+    <p>Maximum Price: ${{ max_price }}</p>
+
+    <h2>Optimization Results</h2>
+    <p>Optimal Sales Price: ${{ optimization.optimal_price }}</p>
+    <p>Total Expected Revenue: ${{ "{:,.2f}".format(optimization.total_revenue) }}</p>
+    <p>Total Expected Profit: ${{ "{:,.2f}".format(optimization.total_profit) }}</p>
+
+    <h2>Monthly Expected Sales Volumes at Optimal Price</h2>
+    <table border="1">
+        <tr>
+            <th>Month</th>
+            <th>Expected Volume</th>
+        </tr>
+        {% for i in range(12) %}
+        <tr>
+            <td>{{ data_info.column_names[i+1] }}</td>
+            <td>{{ optimization.monthly_volumes[i] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>File Information</h2>
+    <p>Number of rows: {{ data_info.rows }}</p>
+    <p>Number of columns: {{ data_info.columns }}</p>
+    
+    <h2>Column Names:</h2>
+    <ul>
+    {% for column in data_info.column_names %}
+        <li>{{ column }}</li>
+    {% endfor %}
+    </ul>
+    
+    <br>
+    <a href="/">Upload another file</a>
+</body>
+</html> 

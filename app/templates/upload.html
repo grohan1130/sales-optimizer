@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload File & Product Details</title>
+</head>
+<body>
+    <h1>Upload Excel or CSV File and Enter Product Details</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <label for="cost">Unit Cost of Production ($):</label>
+            <input type="number" 
+                   id="cost" 
+                   name="cost" 
+                   step="0.01" 
+                   min="0" 
+                   required>
+        </div>
+        <br>
+        <div>
+            <label for="best_guess_price">Best-guess Viable Sales Price ($):</label>
+            <input type="number" 
+                   id="best_guess_price" 
+                   name="best_guess_price" 
+                   step="0.01" 
+                   min="0" 
+                   required>
+        </div>
+        <br>
+        <div>
+            <label for="max_price">Maximum Viable Sales Price ($):</label>
+            <input type="number" 
+                   id="max_price" 
+                   name="max_price" 
+                   step="0.01" 
+                   min="0" 
+                   required>
+        </div>
+        <br>
+        <div>
+            <label for="file">Historical Sales Data (Excel/CSV):</label>
+            <input type="file" 
+                   name="file" 
+                   id="file"
+                   accept=".csv,.xlsx,.xls" 
+                   required>
+        </div>
+        <br>
+        <input type="submit" value="Upload and View Calculations">
+    </form>
+</body>
+</html> 
